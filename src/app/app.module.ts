@@ -20,6 +20,7 @@ const config: Config = {
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     AppRoutingModule,
     PhysioSideModule,
     AuthModule,
