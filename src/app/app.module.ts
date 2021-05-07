@@ -7,6 +7,7 @@ import {AuthModule} from './auth/auth.module';
 import {AuthService} from './core/auth.service';
 import {Config, CONFIG} from './core/config';
 import {HomeModule} from './home/home.module';
+import {PagesModule} from './pages/pages.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api'
@@ -20,7 +21,8 @@ const config: Config = {
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    HomeModule
+    HomeModule,
+    PagesModule
   ],
   providers: [
     AuthService,
