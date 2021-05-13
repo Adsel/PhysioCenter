@@ -10,6 +10,7 @@ import {HomeModule} from './home/home.module';
 import {CoreModule} from './core/core.module';
 import {PhysioSideModule} from './physio-side/physio-side.module';
 import {HttpHeaders} from '@angular/common/http';
+import {PagesModule} from './pages/pages.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -26,7 +27,8 @@ const config: Config = {
     AppRoutingModule,
     PhysioSideModule,
     AuthModule,
-    HomeModule
+    HomeModule,
+    PagesModule
   ],
   providers: [
     AuthService,
