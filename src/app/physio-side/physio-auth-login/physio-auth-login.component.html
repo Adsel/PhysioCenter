@@ -2,20 +2,22 @@
   <div class="row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card card-signin my-5">
-        <div class="card-body">
+
+        <div class="card-body border" [ngClass]="{'border-danger': isInvalid}">
           <h5 class="card-title text-center">Sign In</h5>
+          <span *ngIf="isInvalid" class="text-danger">Data incorrect!</span>
           <form class="form-signin">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputEmail">Email address</label>
+            <div class="form-label-group py-1">
+              <label for="inputLogin">Login</label>
+              <input type="text" id="inputLogin" class="form-control" name="loginInput" [(ngModel)]="loginInput" placeholder="Login" required autofocus>
             </div>
 
-            <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <div class="form-label-group py-1">
               <label for="inputPassword">Password</label>
+              <input type="password" id="inputPassword" class="form-control" name="passwordInput" [(ngModel)]="passwordInput" placeholder="Password" required>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="login($event)">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase mt-4" type="submit" (click)="login($event)">Sign in</button>
           </form>
         </div>
       </div>

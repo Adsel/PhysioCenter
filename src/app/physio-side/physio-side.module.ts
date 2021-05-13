@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PhysioAuthComponent } from './physio-auth/physio-auth.component';
 import {RouterModule} from '@angular/router';
 import { PhysioAuthLoginComponent } from './physio-auth-login/physio-auth-login.component';
+import {FormsModule} from '@angular/forms';
 
 const routes = [
   { path: 'physio', component: PhysioAuthComponent }
@@ -14,9 +15,10 @@ const routes = [
     PhysioAuthComponent,
     PhysioAuthLoginComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FormsModule
+    ]
 })
 export class PhysioSideModule { }

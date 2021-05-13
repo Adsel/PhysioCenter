@@ -1,11 +1,14 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Config, CONFIG} from './config';
+import {LoginData, User} from './model';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  loggedUser: User;
   isLogged: boolean;
 
   constructor(
@@ -13,12 +16,18 @@ export class AuthService {
     @Inject(CONFIG) private config: Config
   ) { }
 
-  login(): void {
-    // return this.httpClient.get<Physio>(`${this.config.apiUrl}/login`)
+  loginUser(user: User): void {
     this.isLogged = true;
+    this.loggedUser = user;
   }
 
-  logout(): void {
+  logoutUser(): void {
+    this.loggedUser = null;
     this.isLogged = false;
+  }
+
+  loginPhysio(loginData: LoginData): Observable<User> {
+    const url = `${this.config.apiUrl}/auth/login/physio`;
+    return this.httpClient.post<User>(url, loginData, { headers:  this.config.headersConfig});
   }
 }

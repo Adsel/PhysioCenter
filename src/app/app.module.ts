@@ -9,9 +9,11 @@ import {Config, CONFIG} from './core/config';
 import {HomeModule} from './home/home.module';
 import {CoreModule} from './core/core.module';
 import {PhysioSideModule} from './physio-side/physio-side.module';
+import {HttpHeaders} from '@angular/common/http';
 
 const config: Config = {
-  apiUrl: 'http://localhost:8080/api'
+  apiUrl: 'http://localhost:8080/api',
+  headersConfig: new HttpHeaders().set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*')
 };
 
 @NgModule({
