@@ -36,6 +36,11 @@ export class AuthService {
     return this.httpClient.post<UserLoginStatus>(url, loginData, { headers: this.config.headersConfig });
   }
 
+  loginPatient(loginData: LoginData): Observable<UserLoginStatus> {
+    const url = `${this.config.apiUrl}/auth/login/physio`;
+    return this.httpClient.post<UserLoginStatus>(url, loginData, { headers: this.config.headersConfig });
+  }
+
   isLoggedUser(): boolean {
     console.log('logged user', localStorage.getItem(this.loggedUserKey));
     return !!localStorage.getItem(this.loggedUserKey);
