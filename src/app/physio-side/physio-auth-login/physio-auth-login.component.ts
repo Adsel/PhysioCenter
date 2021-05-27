@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../core/auth.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-physio-auth-login',
@@ -28,7 +28,7 @@ export class PhysioAuthLoginComponent implements OnInit {
       password: this.passwordInput
     }).subscribe((response) => {
       this.authService.loginUser(response);
-      this.router.navigate(['/physio/']);
+      this.router.navigate(['/physio']);
     }, () => {
       this.isInvalid = true;
     });

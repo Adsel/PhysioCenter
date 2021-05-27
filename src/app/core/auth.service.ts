@@ -28,6 +28,6 @@ export class AuthService {
 
   loginPhysio(loginData: LoginData): Observable<User> {
     const url = `${this.config.apiUrl}/auth/login/physio`;
-    return this.httpClient.post<User>(url, loginData, { headers:  this.config.headersConfig});
+    return this.httpClient.post<User>(url, loginData, { headers: this.config.headersConfig });
   }
 }
