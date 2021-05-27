@@ -15,6 +15,11 @@ export const USER_TYPE = {
   PHYSIO: 1
 };
 
+export interface UserLoginStatus {
+  message: string;
+  user: User;
+}
+
 export interface User {
   userId: number;
   login: string;

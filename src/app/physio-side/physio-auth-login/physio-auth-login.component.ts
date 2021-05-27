@@ -27,7 +27,7 @@ export class PhysioAuthLoginComponent implements OnInit {
       login: this.loginInput,
       password: this.passwordInput
     }).subscribe((response) => {
-      this.authService.loginUser(response);
+      this.authService.loginUser(response.user);
       this.router.navigate(['/physio']);
     }, () => {
       this.isInvalid = true;
