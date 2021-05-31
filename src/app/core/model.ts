@@ -15,6 +15,21 @@ export const USER_TYPE = {
   PHYSIO: 1
 };
 
+export interface RegistrationData {
+  login: string;
+  password: string;
+  name: string;
+  surname: string;
+  phoneNumber: string;
+  email: string;
+  peselNo: string;
+}
+
+export interface RegisterPatientUserResponse {
+  message: string;
+  userDto: User;
+}
+
 export interface UserLoginStatus {
   message: string;
   user: User;

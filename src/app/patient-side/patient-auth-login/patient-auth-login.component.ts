@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../core/auth.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-patient-auth-login',
@@ -14,7 +15,8 @@ export class PatientAuthLoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class PatientAuthLoginComponent implements OnInit {
     }).subscribe((response) => {
       this.authService.loginUser(response.user);
       this.router.navigate(['/patient']);
+      this.toastr.success('You are welcome!', 'Patient has been logged!');
     }, () => {
       this.isInvalid = true;
     });

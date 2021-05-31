@@ -12,6 +12,8 @@ import {PhysioSideModule} from './physio-side/physio-side.module';
 import {HttpHeaders} from '@angular/common/http';
 import {PagesModule} from './pages/pages.module';
 import {PatientSideModule} from './patient-side/patient-side.module';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -30,7 +32,11 @@ const config: Config = {
     PatientSideModule,
     AuthModule,
     HomeModule,
-    PagesModule
+    PagesModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass : 'toast-bottom-right'
+    })
   ],
   providers: [
     AuthService,

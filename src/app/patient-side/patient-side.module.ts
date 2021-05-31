@@ -5,16 +5,19 @@ import { PatientAuthLoginComponent } from './patient-auth-login/patient-auth-log
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {PatientPanelModule} from './patient-panel/patient-panel.module';
+import { PatientRegistrationComponent } from './patient-registration/patient-registration.component';
 
 const routes = [
-  { path: 'patient', component: PatientAuthComponent }
+  { path: 'patient', component: PatientAuthComponent },
+  { path: 'patient/registration', component: PatientRegistrationComponent }
   // { path: 'patient/example', component: PhysioAuthComponent, canActivate: [AuthPhysioGuard },
 ];
 
 @NgModule({
   declarations: [
     PatientAuthComponent,
-    PatientAuthLoginComponent
+    PatientAuthLoginComponent,
+    PatientRegistrationComponent
   ],
   imports: [
     CommonModule,
