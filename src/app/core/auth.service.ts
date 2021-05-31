@@ -1,7 +1,7 @@
 import {Inject, Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Config, CONFIG} from './config';
-import {LoginData, User, UserLoginStatus} from './model';
+import {LoginData, RegisterPatientUserResponse, RegistrationData, User, UserLoginStatus} from './model';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -37,12 +37,17 @@ export class AuthService {
   }
 
   loginPatient(loginData: LoginData): Observable<UserLoginStatus> {
-    const url = `${this.config.apiUrl}/auth/login/physio`;
+    const url = `${this.config.apiUrl}/auth/login/patient`;
     return this.httpClient.post<UserLoginStatus>(url, loginData, { headers: this.config.headersConfig });
   }
 
   isLoggedUser(): boolean {
     console.log('logged user', localStorage.getItem(this.loggedUserKey));
     return !!localStorage.getItem(this.loggedUserKey);
+  }
+
+  registerPatient(registrationData: RegistrationData): Observable<RegisterPatientUserResponse> {
+    const url = `${this.config.apiUrl}/auth/register/patient`;
+    return this.httpClient.post<RegisterPatientUserResponse>(url, registrationData, { headers: this.config.headersConfig });
   }
 }
