@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PatientPanelHomeComponent } from './patient-panel-home/patient-panel-home.component';
 import { PatientPanelNavbarComponent } from './patient-panel-navbar/patient-panel-navbar.component';
 import { PatientPanelHomeCardComponent } from './patient-panel-home-card/patient-panel-home-card.component';
+import { PatientPanelPhysioComponent } from './patient-panel-physio/patient-panel-physio.component';
 
 
 
@@ -10,7 +11,8 @@ import { PatientPanelHomeCardComponent } from './patient-panel-home-card/patient
     declarations: [
         PatientPanelHomeComponent,
         PatientPanelNavbarComponent,
-        PatientPanelHomeCardComponent
+        PatientPanelHomeCardComponent,
+        PatientPanelPhysioComponent
     ],
     exports: [
         PatientPanelHomeComponent
