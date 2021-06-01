@@ -43,3 +43,12 @@ export interface User {
   patientId: number;
   isPhysio: boolean;
 }
+
+export interface Physio {
+  physioId: number;
+  name: string;
+  surname: string;
+  phoneNumber: string;
+  email: string;
+  licenceNo: string;
+}

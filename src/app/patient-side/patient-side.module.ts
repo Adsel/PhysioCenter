@@ -6,10 +6,12 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {PatientPanelModule} from './patient-panel/patient-panel.module';
 import { PatientRegistrationComponent } from './patient-registration/patient-registration.component';
+import {PatientPanelPhysioComponent} from './patient-panel/patient-panel-physio/patient-panel-physio.component';
 
 const routes = [
   { path: 'patient', component: PatientAuthComponent },
-  { path: 'patient/registration', component: PatientRegistrationComponent }
+  { path: 'patient/registration', component: PatientRegistrationComponent },
+  { path: 'patient/physio', component: PatientPanelPhysioComponent }
   // { path: 'patient/example', component: PhysioAuthComponent, canActivate: [AuthPhysioGuard },
 ];
 

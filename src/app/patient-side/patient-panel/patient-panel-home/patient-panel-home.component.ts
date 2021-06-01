@@ -26,7 +26,7 @@ export class PatientPanelHomeComponent implements OnInit {
       title: 'Check physiotherapists',
       src: 'https://cdn.pixabay.com/photo/2021/05/29/01/55/physical-therapy-6292317_960_720.jpg',
       text: 'Check our physio list!',
-      button: { label: 'Go to Physio List', icon: 'fas fa-glasses', href: '#' }
+      button: { label: 'Go to Physio List', icon: 'fas fa-glasses', href: '/patient/physio' }
     }, {
       title: 'Have questions?',
       src: 'https://cdn.pixabay.com/photo/2015/03/24/12/42/woman-687560_960_720.jpg',
