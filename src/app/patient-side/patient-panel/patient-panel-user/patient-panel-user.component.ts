@@ -9,8 +9,8 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./patient-panel-user.component.scss']
 })
 export class PatientPanelUserComponent implements OnInit {
-  passwordInput: string;
-  passwordInputRe: string;
+  passwordInput = '';
+  passwordInputRe = '';
   inputName: string;
   inputSurname: string;
   inputPhone: string;
@@ -45,6 +45,20 @@ export class PatientPanelUserComponent implements OnInit {
 
   changeLoginData(event): void {
     event.preventDefault();
+    if (this.passwordInput !== '') {
+      if (this.passwordInput !== this.passwordInputRe) {
+        this.toastrService.warning('Password doesn\'t match!');
+      } else {
+        const passwdData = { password: this.passwordInput };
+        this.patientService.updateUserData(this.userId, passwdData).subscribe(() => {
+          this.toastrService.success('Password has been updated!');
+          this.passwordInput = '';
+          this.passwordInputRe = '';
+        });
+      }
+    } else {
+      this.toastrService.warning('Empty password fields!');
+    }
   }
 
   updatePersonalData(event): void {

@@ -35,6 +35,10 @@ export interface UserLoginStatus {
   user: User;
 }
 
+export interface PasswordData {
+  password: string;
+}
+
 export interface User {
   userId: number;
   login: string;
