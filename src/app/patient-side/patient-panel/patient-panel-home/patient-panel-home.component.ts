@@ -21,7 +21,7 @@ export class PatientPanelHomeComponent implements OnInit {
       title: 'Manage account',
       src: 'https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
       text: 'Manage your account data!',
-      button: { label: 'Manage', icon: 'fas fa-user', href: '#' }
+      button: { label: 'Manage', icon: 'fas fa-user', href: '/patient/settings' }
     }, {
       title: 'Check physiotherapists',
       src: 'https://cdn.pixabay.com/photo/2021/05/29/01/55/physical-therapy-6292317_960_720.jpg',
@@ -31,7 +31,7 @@ export class PatientPanelHomeComponent implements OnInit {
       title: 'Have questions?',
       src: 'https://cdn.pixabay.com/photo/2015/03/24/12/42/woman-687560_960_720.jpg',
       text: 'Ask question online!',
-      button: { label: 'Ask Question', icon: 'fas fa-question', href: '/patient/settings' }
+      button: { label: 'Ask Question', icon: 'fas fa-question', href: '#' }
     }
   ];
   constructor() { }
