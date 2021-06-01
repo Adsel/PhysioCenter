@@ -27,8 +27,12 @@ export class AuthService {
   }
 
   logoutUser(): void {
+    localStorage.removeItem(this.loggedUserKey);
+    console.log('logout');
+    console.log('logout');
+    console.log('logout');
     this.loggedUser = null;
-    this.isLogged = false;
+    this.isLogged = this.isLoggedUser();
   }
 
   loginPhysio(loginData: LoginData): Observable<UserLoginStatus> {
