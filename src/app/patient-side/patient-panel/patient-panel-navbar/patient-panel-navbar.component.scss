@@ -1,7 +1,9 @@
+$navbar-bg-color: #2c3e50;
+$navbar-height: 75px;
 nav {
-  $navbar-bg-color: #2c3e50;
-
+  height: $navbar-height;
   background-color: $navbar-bg-color;
+
   a {
     color: white;
 

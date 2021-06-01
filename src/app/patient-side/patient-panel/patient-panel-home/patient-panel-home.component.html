@@ -1,13 +1,9 @@
 <app-patient-panel-navbar></app-patient-panel-navbar>
-<p>Pacjent zalogowany</p>
-
 <div class="container">
   <div class="card-group row">
-    <app-patient-panel-home-card *ngFor="let card of cards" class="col-md-4"
+    <app-patient-panel-home-card *ngFor="let card of cards" class="col-md-4" :buttonLabel="{{ card.button.label }}"
                                  :title="{{ card.title }}" :src="{{ card.src }}" :text="{{ card.text }}"
                                  :buttonIcon="{{ card.button.icon }}" :buttonHref="{{ card.button.href }}"
-                                 :buttonLabel="{{ card.button.label }}"
-    >
-    </app-patient-panel-home-card>
+    ></app-patient-panel-home-card>
   </div>
 </div>
