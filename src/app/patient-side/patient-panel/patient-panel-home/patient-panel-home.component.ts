@@ -31,7 +31,7 @@ export class PatientPanelHomeComponent implements OnInit {
       title: 'Have questions?',
       src: 'https://cdn.pixabay.com/photo/2015/03/24/12/42/woman-687560_960_720.jpg',
       text: 'Ask question online!',
-      button: { label: 'Ask Question', icon: 'fas fa-question', href: '#' }
+      button: { label: 'Ask Question', icon: 'fas fa-question', href: '/patient/settings' }
     }
   ];
   constructor() { }

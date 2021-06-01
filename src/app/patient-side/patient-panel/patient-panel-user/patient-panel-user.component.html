@@ -1,0 +1,31 @@
+<app-patient-panel-navbar></app-patient-panel-navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body border">
+          <h5 class="card-title text-center">Login Data</h5>
+          <form class="form-signin">
+            <div class="form-label-group py-1">
+              <label for="inputLogin">Login</label>
+              <input type="text" id="inputLogin" class="form-control" name="loginInput" [(ngModel)]="loginInput" placeholder="Login" required autofocus>
+            </div>
+
+            <div class="form-label-group py-1">
+              <label for="inputPassword">Password</label>
+              <input type="password" id="inputPassword" class="form-control" name="passwordInput" [(ngModel)]="passwordInput" placeholder="Password" required>
+            </div>
+
+            <div class="form-label-group py-1">
+              <label for="inputPassword">Repeat Password</label>
+              <input type="password" id="inputPasswordRepeat" class="form-control" name="passwordInputRe" [(ngModel)]="passwordInputRe" placeholder="Password" required>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block text-uppercase mt-4" (click)="changeLoginData($event)">Change</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
