@@ -44,6 +44,15 @@ export interface User {
   isPhysio: boolean;
 }
 
+export interface Patient {
+  patientId: number;
+  name: string;
+  surname: string;
+  phoneNumber: string;
+  email: string;
+  peselNo: string;
+}
+
 export interface Physio {
   physioId: number;
   name: string;
