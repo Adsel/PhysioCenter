@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../core/auth.service';
 import {PatientService} from '../../../core/patient.service';
 import {ToastrService} from 'ngx-toastr';
