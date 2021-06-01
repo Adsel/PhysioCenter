@@ -17,6 +17,9 @@ export class AuthService {
     @Inject(CONFIG) private config: Config
   ) {
     this.isLogged = this.isLoggedUser();
+    if (this.isLogged) {
+      this.loggedUser = JSON.parse(localStorage.getItem(this.loggedUserKey));
+    }
   }
 
   loginUser(user: User): void {
@@ -28,9 +31,6 @@ export class AuthService {
 
   logoutUser(): void {
     localStorage.removeItem(this.loggedUserKey);
-    console.log('logout');
-    console.log('logout');
-    console.log('logout');
     this.loggedUser = null;
     this.isLogged = this.isLoggedUser();
   }

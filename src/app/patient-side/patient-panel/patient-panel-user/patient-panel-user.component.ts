@@ -1,4 +1,7 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {AuthService} from '../../../core/auth.service';
+import {PatientService} from '../../../core/patient.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-patient-panel-user',
@@ -6,19 +9,38 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
   styleUrls: ['./patient-panel-user.component.scss']
 })
 export class PatientPanelUserComponent implements OnInit {
-  @Input() passwordInput: string;
-  @Input() passwordInputRe: string;
-  @Input() inputName: string;
-  @Input() inputSurname: string;
-  @Input() inputPhone: string;
-  @Input() inputEmail: string;
-  @Input() inputPesel: string;
+  passwordInput: string;
+  passwordInputRe: string;
+  inputName: string;
+  inputSurname: string;
+  inputPhone: string;
+  inputEmail: string;
+  inputPesel: string;
+  userId: number;
   showing: string;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private patientService: PatientService,
+    private toastrService: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.showing = 'firstSection';
+    this.loadUserData();
+  }
+
+  private loadUserData(): void {
+    if (this.authService.loggedUser) {
+      this.userId = this.authService.loggedUser.userId;
+      this.patientService.getPatientData(this.userId).subscribe((patient) => {
+        this.inputName = patient.name;
+        this.inputSurname = patient.surname;
+        this.inputPhone = patient.phoneNumber;
+        this.inputEmail = patient.email;
+        this.inputPesel = patient.peselNo;
+      });
+    }
   }
 
   changeLoginData(event): void {
@@ -27,6 +49,17 @@ export class PatientPanelUserComponent implements OnInit {
 
   updatePersonalData(event): void {
     event.preventDefault();
+    const userData = {
+      patientId: this.userId,
+      name: this.inputName,
+      surname: this.inputSurname,
+      phoneNumber: this.inputPhone,
+      email: this.inputEmail,
+      peselNo: this.inputPesel
+    };
+    this.patientService.updatePatientData(this.userId, userData).subscribe(() => {
+      this.toastrService.success('Data have been updated!');
+    });
   }
 
   show(which): void {
