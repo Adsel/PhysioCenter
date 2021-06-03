@@ -17,7 +17,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
-  headersConfig: new HttpHeaders().set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*')
+  headersConfig: new HttpHeaders().set('Content-Type', 'application/json').set('Access-Control-Allow-Origin', '*'),
+  messageRefreshCycle: 10000
 };
 
 @NgModule({

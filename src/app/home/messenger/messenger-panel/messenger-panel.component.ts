@@ -26,7 +26,6 @@ export class MessengerPanelComponent implements OnInit {
   }
 
   changeActiveObject(messageObject: MessageObject): void {
-    console.log('CHANGE', messageObject);
     this.activeMessageObject = messageObject;
   }
 

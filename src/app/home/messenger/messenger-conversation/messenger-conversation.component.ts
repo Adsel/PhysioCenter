@@ -1,6 +1,7 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnChanges, OnInit} from '@angular/core';
 import {Message, MessageObject} from '../../../core/model';
 import {MessageService} from '../../../core/message.service';
+import {Config, CONFIG} from '../../../core/config';
 
 @Component({
   selector: 'app-messenger-conversation',
@@ -13,10 +14,14 @@ export class MessengerConversationComponent implements OnInit, OnChanges {
   messages: Message[];
 
   constructor(
-    private messageService: MessageService
+    private messageService: MessageService,
+    @Inject(CONFIG) private config: Config
   ) { }
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.loadMessages();
+    }, this.config.messageRefreshCycle);
   }
 
   loadMessages(): void {
