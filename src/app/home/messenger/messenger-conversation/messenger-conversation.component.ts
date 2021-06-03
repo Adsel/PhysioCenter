@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {MessageObject} from '../../../core/model';
+import {Message, MessageObject} from '../../../core/model';
 import {MessageService} from '../../../core/message.service';
 
 @Component({
@@ -10,6 +10,7 @@ import {MessageService} from '../../../core/message.service';
 export class MessengerConversationComponent implements OnInit, OnChanges {
   @Input() activeMessageObject: MessageObject;
   @Input() isPhysio: boolean;
+  messages: Message[];
 
   constructor(
     private messageService: MessageService
@@ -19,11 +20,15 @@ export class MessengerConversationComponent implements OnInit, OnChanges {
   }
 
   loadMessages(): void {
-    // this.messageService.getAllMessages();
+    if (this.activeMessageObject) {
+      const contact = this.activeMessageObject;
+      this.messageService.getMessagesWith(contact.patient.patientId, contact.physio.physioId).subscribe((messages) => {
+        this.messages = messages;
+      });
+    }
   }
 
   ngOnChanges(changes): void {
-    console.log('CHANGES', changes);
     if (!!changes.activeMessageObject) {
       this.loadMessages();
     }
