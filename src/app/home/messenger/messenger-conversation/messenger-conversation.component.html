@@ -1,7 +1,16 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Active conversation</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Now not selected</h6>
+    <h6 *ngIf="!activeMessageObject" class="card-subtitle mb-2 text-muted">Now not selected</h6>
+    <ng-container *ngIf="!!activeMessageObject && isPhysio">
+      <h6 class="card-subtitle mb-2 text-muted">{{ activeMessageObject.patient.email }}</h6>
+      <p class="card-text"></p>
 
+      <a href="" class="card-link">todo: register visit</a>
+    </ng-container>
+    <ng-container *ngIf="!!activeMessageObject && !isPhysio">
+      <h6 class="card-subtitle mb-2 text-muted">{{ activeMessageObject.physio.email }}</h6>
+      <p class="card-text"></p>
+    </ng-container>
   </div>
 </div>
