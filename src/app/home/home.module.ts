@@ -9,7 +9,7 @@ import {MessengerModule} from './messenger/messenger.module';
 
 const routes = [
   { path: 'home', component: MainPageComponent },
-  { path: 'messanger', component: MessengerPanelComponent }
+  { path: 'messenger', component: MessengerPanelComponent }
 ];
 
 @NgModule({
