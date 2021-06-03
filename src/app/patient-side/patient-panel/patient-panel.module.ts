@@ -18,11 +18,12 @@ import {FormsModule} from '@angular/forms';
         PatientPanelUserComponent
     ],
     exports: [
-        PatientPanelHomeComponent
+        PatientPanelHomeComponent,
+        PatientPanelNavbarComponent
     ],
-  imports: [
-    CommonModule,
-    FormsModule
-  ]
+    imports: [
+      CommonModule,
+      FormsModule
+    ]
 })
 export class PatientPanelModule { }
