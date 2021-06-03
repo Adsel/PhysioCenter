@@ -39,4 +39,10 @@ export class MessengerConversationComponent implements OnInit, OnChanges {
     }
   }
 
+  onSentMessage(flag): void {
+    if (flag) {
+      this.loadMessages();
+    }
+  }
+
 }

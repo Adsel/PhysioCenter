@@ -19,7 +19,7 @@ export class MessengerPanelComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isPhysio = !!this.authService.loggedUser && this.authService.loggedUser.isPhysio;
+    this.isPhysio = !!this.authService.loggedUser && !!this.authService.loggedUser.physioId;
     this.messageService.getLastMessages(this.authService.loggedUser.userId).subscribe((response) => {
       this.messageObjects = response.lastMessages;
     });

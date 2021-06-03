@@ -6,6 +6,7 @@ import { MessengerObjectsComponent } from './messenger-objects/messenger-objects
 import { MessengerConversationComponent } from './messenger-conversation/messenger-conversation.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import { MessengerAddComponent } from './messenger-add/messenger-add.component';
 
 
 
@@ -13,7 +14,8 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     MessengerPanelComponent,
     MessengerObjectsComponent,
-    MessengerConversationComponent
+    MessengerConversationComponent,
+    MessengerAddComponent
   ],
   imports: [
     FormsModule,
