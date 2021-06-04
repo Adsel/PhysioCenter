@@ -91,3 +91,12 @@ export interface MessageObject {
   patient: Patient;
   physio: Physio;
 }
+
+export interface VisitPlace {
+  physioId: number;
+  patientId: number;
+  isOccupied: boolean;
+  date: string;
+  timeFrom: string;
+  timeTo: string;
+}

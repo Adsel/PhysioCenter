@@ -4,18 +4,24 @@ import { PatientPanelVisitRegistrationComponent } from './patient-panel-visit-re
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {PatientPanelModule} from '../patient-panel.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CalendarModule} from 'primeng/calendar';
+import { PatientPanelVisitListComponent } from './patient-panel-visit-list/patient-panel-visit-list.component';
 
 
 
 @NgModule({
   declarations: [
-    PatientPanelVisitRegistrationComponent
+    PatientPanelVisitRegistrationComponent,
+    PatientPanelVisitListComponent
   ],
   imports: [
     FormsModule,
     CommonModule,
     BrowserModule,
-    PatientPanelModule
+    PatientPanelModule,
+    BrowserAnimationsModule,
+    CalendarModule
   ]
 })
 export class PatientPanelVisitModule { }

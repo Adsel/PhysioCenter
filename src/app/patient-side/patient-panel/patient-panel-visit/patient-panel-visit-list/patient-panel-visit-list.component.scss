@@ -1,0 +1,25 @@
+$primary-color: #2c3e50;
+
+.btn-primary {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+}
+
+.visit-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  & > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.current-patient {
+  background-color: limegreen;
+}

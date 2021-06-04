@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Visits in {{ date }} to {{ physio.name }} {{ physio.surname }}</h2>
+
+  <ul class="list-group mb-4" *ngFor="let visit of visits">
+    <li class="list-group-item visit-wrapper" [ngClass]="{'current-patient': visit.patientId === patientId}">
+      <span>{{ visit.timeFrom.slice(0, 5) }} - {{ visit.timeTo.slice(0, 5) }}</span>
+
+      <button class="btn btn-primary">Register visit</button>
+    </li>
+  </ul>
+</div>
