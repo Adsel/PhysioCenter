@@ -1,0 +1,19 @@
+$primary-color: #2c3e50;
+
+.new-conversation-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+
+  & > button {
+    background-color: $primary-color;
+    color: white;
+    width: 70%;
+
+    &:hover {
+      background-color: lighten($primary-color, 20%);
+    }
+  }
+
+}
