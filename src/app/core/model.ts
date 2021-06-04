@@ -65,3 +65,29 @@ export interface Physio {
   email: string;
   licenceNo: string;
 }
+
+export interface Message {
+  messageId: number;
+  patientId: number;
+  physioId: number;
+  directionToPhysio: boolean;
+  message: string;
+  createdAt: Date;
+}
+
+export interface LastMessageList {
+  lastMessages: MessageObject[];
+}
+
+export interface AddMessageDTO {
+  patientId: number;
+  physioId: number;
+  directionToPhysio: boolean;
+  message: string;
+}
+
+export interface MessageObject {
+  message: Message;
+  patient: Patient;
+  physio: Physio;
+}

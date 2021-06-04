@@ -1,0 +1,14 @@
+<app-patient-panel-navbar *ngIf="!isPhysio"></app-patient-panel-navbar>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="list-group">
+        <app-messenger-objects (activeMessageObjectChange)="changeActiveObject($event)" [messageObjects]="messageObjects"
+                               [isPhysio]="isPhysio"></app-messenger-objects>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <app-messenger-conversation [isPhysio]="isPhysio" [activeMessageObject]="activeMessageObject"></app-messenger-conversation>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.message-wrapper {
+  display: flex;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  flex-direction: column;
+
+  & > message {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  & > .message-from {
+    display: flex;
+    justify-content: flex-end;
+    color: lighten(#212529, 40%);
+  }
+}
