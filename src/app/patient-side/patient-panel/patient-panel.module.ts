@@ -6,6 +6,7 @@ import { PatientPanelHomeCardComponent } from './patient-panel-home-card/patient
 import { PatientPanelPhysioComponent } from './patient-panel-physio/patient-panel-physio.component';
 import { PatientPanelUserComponent } from './patient-panel-user/patient-panel-user.component';
 import {FormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 
 
 
@@ -22,8 +23,9 @@ import {FormsModule} from '@angular/forms';
         PatientPanelNavbarComponent
     ],
     imports: [
+      FormsModule,
       CommonModule,
-      FormsModule
+      BrowserModule
     ]
 })
 export class PatientPanelModule { }

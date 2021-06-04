@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../core/auth.service';
 import {MessageService} from '../../../core/message.service';
 import {MessageObject, Patient, Physio} from '../../../core/model';
-import {PhysioService} from '../../../core/physio.service';
 
 @Component({
   selector: 'app-messenger-panel',
