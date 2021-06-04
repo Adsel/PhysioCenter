@@ -7,6 +7,8 @@ import { MessengerConversationComponent } from './messenger-conversation/messeng
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import { MessengerAddComponent } from './messenger-add/messenger-add.component';
+import { MessengerDirectComponent } from './messenger-direct/messenger-direct.component';
+import { MessengerChooseContactComponent } from './messenger-choose-contact/messenger-choose-contact.component';
 
 
 
@@ -15,7 +17,9 @@ import { MessengerAddComponent } from './messenger-add/messenger-add.component';
     MessengerPanelComponent,
     MessengerObjectsComponent,
     MessengerConversationComponent,
-    MessengerAddComponent
+    MessengerAddComponent,
+    MessengerDirectComponent,
+    MessengerChooseContactComponent
   ],
   imports: [
     FormsModule,

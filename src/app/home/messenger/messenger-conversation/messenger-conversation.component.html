@@ -13,13 +13,13 @@
         <h6 class="card-subtitle mb-2 text-muted">{{ activeMessageObject.physio.email }}</h6>
         <p class="card-text"></p>
       </ng-container>
-      <div *ngIf="!!messages" class="message-wrapper">
+      <div *ngIf="!!messages && messages.length > 0" class="message-wrapper">
         <div class="message" *ngFor="let message of messages" [title]="'Sent: ' + message.createdAt"
              [ngClass]="{'message-from': (message.directionToPhysio && isPhysio) || (!message.directionToPhysio && !isPhysio)}">
           {{ message.message }}
         </div>
       </div>
-      <div *ngIf="!messages">
+      <div *ngIf="!messages || messages.length === 0">
         Start conversation by sending first message ;)
       </div>
       <app-messenger-add (sentMessage)="onSentMessage($event)" [isPhysio]="isPhysio" [activeMessageObject]="activeMessageObject"></app-messenger-add>

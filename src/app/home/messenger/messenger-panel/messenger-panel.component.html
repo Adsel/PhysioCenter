@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="list-group">
+        <app-messenger-direct (createMessageObjEvent)="newContact($event)" [isPhysio]="isPhysio"></app-messenger-direct>
         <app-messenger-objects (activeMessageObjectChange)="changeActiveObject($event)" [messageObjects]="messageObjects"
                                [isPhysio]="isPhysio"></app-messenger-objects>
       </div>
