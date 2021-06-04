@@ -12,6 +12,7 @@ export class MessengerPanelComponent implements OnInit {
   isPhysio: boolean;
   messageObjects: MessageObject[];
   activeMessageObject: MessageObject;
+  newDirectMessage: boolean;
 
   constructor(
     private authService: AuthService,
@@ -23,6 +24,7 @@ export class MessengerPanelComponent implements OnInit {
     this.messageService.getLastMessages(this.authService.loggedUser.userId).subscribe((response) => {
       this.messageObjects = response.lastMessages;
     });
+    this.newDirectMessage = false;
   }
 
   changeActiveObject(messageObject: MessageObject): void {

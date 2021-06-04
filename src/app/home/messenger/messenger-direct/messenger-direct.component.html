@@ -1,5 +1,7 @@
 <div class="new-conversation-wrapper mb-2">
-  <button class="btn">
+  <button class="btn" (click)="toggleModal($event)">
     <i class="fas fa-plus"></i> New conversation
   </button>
+
+  <app-messenger-choose-contact [isDialogOpen]="isModalOpen" (closeDialogEvent)="toggleModal($event)"></app-messenger-choose-contact>
 </div>
