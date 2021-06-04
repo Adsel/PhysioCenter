@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Physio, VisitPlace} from '../../../../core/model';
-import {PatientService} from '../../../../core/patient.service';
 import {VisitService} from '../../../../core/visit.service';
+import {AuthService} from '../../../../core/auth.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-patient-panel-visit-registration',
@@ -14,7 +15,9 @@ export class PatientPanelVisitRegistrationComponent implements OnInit {
   visits: VisitPlace[];
 
   constructor(
-    private visitService: VisitService
+    private visitService: VisitService,
+    private authService: AuthService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -37,11 +40,15 @@ export class PatientPanelVisitRegistrationComponent implements OnInit {
     return [year, month, day].join('-');
   }
 
-  onSelect(date): void {
-    this.selectedDate = this.formatDate(date);
+  loadVisits(): void {
     this.visitService.getVisitsByDate(this.selectedPhysio.physioId, this.selectedDate).subscribe((visitList) => {
       this.visits = visitList;
     });
+  }
+
+  onSelect(date): void {
+    this.selectedDate = this.formatDate(date);
+    this.loadVisits();
   }
 
   backToPhysio(): void {
@@ -57,5 +64,19 @@ export class PatientPanelVisitRegistrationComponent implements OnInit {
   backToCalendar(): void {
     this.visits = null;
     this.selectedDate = null;
+  }
+
+  onRegisterVisit($event: VisitPlace): void {
+    this.visitService.registerVisit(this.selectedPhysio.physioId, {
+      timeFrom: $event.timeFrom,
+      timeTo: $event.timeTo,
+      date: this.selectedDate,
+      patientId: this.authService.loggedUser.patientId
+    }).subscribe((visit) => {
+      this.loadVisits();
+      this.toastrService.success('Visit has been registered successfully');
+    }, () => {
+      this.toastrService.error('Failed to register visit!');
+    });
   }
 }

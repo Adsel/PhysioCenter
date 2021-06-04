@@ -10,10 +10,11 @@
   </div>
 
   <ul class="list-group mb-4" *ngFor="let visit of visits">
-    <li class="list-group-item visit-wrapper" [ngClass]="{'current-patient': visit.patientId === patientId}">
+    <li class="list-group-item visit-wrapper" [ngClass]="{'disabled-visit' : !visit.free}">
       <span>{{ visit.timeFrom.slice(0, 5) }} - {{ visit.timeTo.slice(0, 5) }}</span>
 
-      <button class="btn btn-primary">Register visit</button>
+      <button class="btn btn-primary" *ngIf="visit.free" (click)="register(visit)">Register visit</button>
+      <span *ngIf="visit.patientId === patientId">Yours</span>
     </li>
   </ul>
 </div>

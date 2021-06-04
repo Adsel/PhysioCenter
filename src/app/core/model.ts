@@ -95,8 +95,15 @@ export interface MessageObject {
 export interface VisitPlace {
   physioId: number;
   patientId: number;
-  isOccupied: boolean;
+  free: boolean;
   date: string;
   timeFrom: string;
   timeTo: string;
+}
+
+export interface RegisterVisit {
+  timeFrom: string;
+  timeTo: string;
+  date: string;
+  patientId: number;
 }

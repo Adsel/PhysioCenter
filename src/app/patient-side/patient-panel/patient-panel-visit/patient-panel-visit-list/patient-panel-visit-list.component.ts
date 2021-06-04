@@ -13,6 +13,7 @@ export class PatientPanelVisitListComponent implements OnInit {
   @Input() physio: Physio;
   @Output() backToCalendarEv = new EventEmitter<void>();
   @Output() backToPhysioEv = new EventEmitter<void>();
+  @Output() registerVisit = new EventEmitter<VisitPlace>();
   patientId: number;
 
   constructor(
@@ -29,5 +30,9 @@ export class PatientPanelVisitListComponent implements OnInit {
 
   backToPhysio(): void {
     this.backToCalendarEv.emit();
+  }
+
+  register(event: VisitPlace): void {
+    this.registerVisit.emit(event);
   }
 }
