@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Physio, VisitPlace} from '../../../../core/model';
 import {AuthService} from '../../../../core/auth.service';
 
@@ -11,6 +11,8 @@ export class PatientPanelVisitListComponent implements OnInit {
   @Input() visits: VisitPlace[];
   @Input() date: string;
   @Input() physio: Physio;
+  @Output() backToCalendarEv = new EventEmitter<void>();
+  @Output() backToPhysioEv = new EventEmitter<void>();
   patientId: number;
 
   constructor(
@@ -21,4 +23,11 @@ export class PatientPanelVisitListComponent implements OnInit {
     this.patientId = this.authService.loggedUser.patientId;
   }
 
+  backToCalendar(): void {
+    this.backToCalendarEv.emit();
+  }
+
+  backToPhysio(): void {
+    this.backToCalendarEv.emit();
+  }
 }

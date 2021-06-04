@@ -9,25 +9,15 @@ import {VisitService} from '../../../../core/visit.service';
   styleUrls: ['./patient-panel-visit-registration.component.scss']
 })
 export class PatientPanelVisitRegistrationComponent implements OnInit {
-  currentDate: Date;
-  es: any;
-  minDateValue: Date;
-  maxDateValue: Date;
   selectedDate: string;
-  physiotherapists: Physio[];
   selectedPhysio: Physio;
   visits: VisitPlace[];
 
   constructor(
-    private patientService: PatientService,
     private visitService: VisitService
   ) { }
 
   ngOnInit(): void {
-    this.physiotherapists = [];
-    this.patientService.getPhysioList().subscribe((physioList) => {
-      this.physiotherapists = physioList;
-    });
   }
 
   formatDate(date): string {
@@ -54,11 +44,18 @@ export class PatientPanelVisitRegistrationComponent implements OnInit {
     });
   }
 
-  choosePhysio(physio): void {
+  backToPhysio(): void {
+    this.selectedPhysio = null;
+  }
+
+  onChoosePhysio(physio): void {
+    this.visits = null;
+    this.selectedDate = null;
     this.selectedPhysio = physio;
   }
 
-  backToPhysio(): void {
-    this.selectedPhysio = null;
+  backToCalendar(): void {
+    this.visits = null;
+    this.selectedDate = null;
   }
 }

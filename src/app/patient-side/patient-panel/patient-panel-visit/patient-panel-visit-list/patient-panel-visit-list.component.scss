@@ -8,6 +8,14 @@ $primary-color: #2c3e50;
   }
 }
 
+.visits-title {
+  margin-bottom: 0.5rem;
+
+  & > button {
+    margin-right: 0.5rem;
+  }
+}
+
 .visit-wrapper {
   display: flex;
   justify-content: space-between;

@@ -3,39 +3,24 @@
   <div class="row" *ngIf="!selectedPhysio">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <h2>Choose physiotherapist</h2>
-      <div class="physio-list">
-        <div *ngFor="let physio of physiotherapists" class="btn-wrapper">
-          <button class="btn">
-            {{ physio.name }} {{ physio.surname }} | {{ physio.licenceNo }}
-          </button>
-          <button class="btn physio-action" (click)="choosePhysio(physio)">
-            Show visit dates
-          </button>
-        </div>
-      </div>
+      <app-patient-panel-visit-physio (onChoosePhysio)="onChoosePhysio($event)"></app-patient-panel-visit-physio>
     </div>
   </div>
   <div class="row">
     <ng-container *ngIf="!!selectedPhysio && !visits">
       <div class="col-md-2"></div>
       <div class="col-md-8">
-        <h2>
-          <button class="btn btn-primary" (click)="backToPhysio()">
-            <i class="fas fa-arrow-left"></i> Back to physio
-          </button>
-          Choose specific date
-        </h2>
-        <p-calendar [(ngModel)]="currentDate" (onSelect)="onSelect($event)" [minDate]="minDateValue"
-                    [maxDate]="maxDateValue" [ngClass]="{'calendar': true}"
-                    [inline]="true" dateFormat="yy.dd.mm" [showWeek]="false" [firstDayOfWeek]="1"></p-calendar>
+        <app-patient-panel-visit-calendar (backToPhysioEv)="backToPhysio()"
+                                          (onSelectDateEv)="onSelect($event)"></app-patient-panel-visit-calendar>
       </div>
     </ng-container>
     <ng-container *ngIf="!!selectedDate && !!visits">
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <app-patient-panel-visit-list [physio]="selectedPhysio" [date]="selectedDate"
-                                      [visits]="visits"></app-patient-panel-visit-list>
+                                      [visits]="visits" (backToPhysioEv)="backToPhysio()"
+                                      (backToCalendarEv)="backToCalendar()">
+        </app-patient-panel-visit-list>
       </div>
     </ng-container>
   </div>
