@@ -50,20 +50,20 @@ export interface User {
 
 export interface Patient {
   patientId: number;
-  name: string;
-  surname: string;
-  phoneNumber: string;
-  email: string;
-  peselNo: string;
+  name?: string;
+  surname?: string;
+  phoneNumber?: string;
+  email?: string;
+  peselNo?: string;
 }
 
 export interface Physio {
   physioId: number;
-  name: string;
-  surname: string;
-  phoneNumber: string;
-  email: string;
-  licenceNo: string;
+  name?: string;
+  surname?: string;
+  phoneNumber?: string;
+  email?: string;
+  licenceNo?: string;
 }
 
 export interface Message {

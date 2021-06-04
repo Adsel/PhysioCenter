@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Patient, Physio} from '../../../core/model';
 
 @Component({
   selector: 'app-messenger-direct',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessengerDirectComponent implements OnInit {
   isModalOpen: boolean;
+  @Input() isPhysio: boolean;
+  @Output() createMessageObjEvent = new EventEmitter<Physio | Patient>();
 
   constructor() { }
 
@@ -18,4 +21,8 @@ export class MessengerDirectComponent implements OnInit {
     this.isModalOpen = !this.isModalOpen;
   }
 
+  createMessageObj($event): void {
+    this.createMessageObjEvent.emit($event);
+    this.toggleModal($event);
+  }
 }
