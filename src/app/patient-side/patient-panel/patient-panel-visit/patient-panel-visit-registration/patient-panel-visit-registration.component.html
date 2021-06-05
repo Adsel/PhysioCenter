@@ -19,6 +19,7 @@
       <div class="col-md-8">
         <app-patient-panel-visit-list [physio]="selectedPhysio" [date]="selectedDate"
                                       [visits]="visits" (backToPhysioEv)="backToPhysio()"
+                                      (cancelVisit)="onCancelVisit($event)"
                                       (backToCalendarEv)="backToCalendar()" (registerVisit)="onRegisterVisit($event)">
         </app-patient-panel-visit-list>
       </div>

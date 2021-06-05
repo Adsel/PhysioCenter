@@ -79,4 +79,18 @@ export class PatientPanelVisitRegistrationComponent implements OnInit {
       this.toastrService.error('Failed to register visit!');
     });
   }
+
+  onCancelVisit($event: VisitPlace): void {
+    this.visitService.cancelVisit(this.selectedPhysio.physioId, {
+      timeFrom: $event.timeFrom,
+      timeTo: $event.timeTo,
+      date: this.selectedDate,
+      patientId: this.authService.loggedUser.patientId
+    }).subscribe((visit) => {
+      this.loadVisits();
+      this.toastrService.success('Visit has been cancelled successfully');
+    }, () => {
+      this.toastrService.error('Failed to cancel visit!');
+    });
+  }
 }

@@ -11,10 +11,15 @@
 
   <ul class="list-group mb-4" *ngFor="let visit of visits">
     <li class="list-group-item visit-wrapper" [ngClass]="{'disabled-visit' : !visit.free}">
-      <span>{{ visit.timeFrom.slice(0, 5) }} - {{ visit.timeTo.slice(0, 5) }}</span>
+      <div class="visit-hours">
+        <span>{{ visit.timeFrom.slice(0, 5) }} - {{ visit.timeTo.slice(0, 5) }}</span>
+        <span *ngIf="visit.patientId === patientId" class="budge">Yours</span>
+      </div>
 
-      <button class="btn btn-primary" *ngIf="visit.free" (click)="register(visit)">Register visit</button>
-      <span *ngIf="visit.patientId === patientId">Yours</span>
+      <div>
+        <button class="btn btn-primary" *ngIf="visit.free" (click)="register(visit)">Register visit</button>
+        <button class="btn btn-danger" *ngIf="visit.patientId === patientId" (click)="cancel(visit)">Cancel visit</button>
+      </div>
     </li>
   </ul>
 </div>

@@ -21,4 +21,11 @@ export class VisitService {
   registerVisit(physioId: number, registerData: RegisterVisit): Observable<VisitPlace> {
     return this.httpClient.post<VisitPlace>(`${this.config.apiUrl}/visit/${physioId}`, registerData, {headers: this.config.headersConfig});
   }
+
+  cancelVisit(physioId: number, registerData: RegisterVisit): Observable<VisitPlace> {
+    return this.httpClient.post<VisitPlace>(
+      `${this.config.apiUrl}/visit/${physioId}/cancel`,
+      registerData,
+      {headers: this.config.headersConfig});
+  }
 }

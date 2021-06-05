@@ -21,6 +21,16 @@ $primary-color: #2c3e50;
   justify-content: space-between;
   align-content: center;
 
+  & > .visit-hours {
+    display: flex;
+    align-items: center;
+  }
+
+  .budge {
+    padding-left: 5px;
+    font-weight: bold;
+  }
+
   & > span {
     display: flex;
     align-items: center;
@@ -29,5 +39,5 @@ $primary-color: #2c3e50;
 }
 
 .disabled-visit {
-  background-color: grey;
+  background-color: rgba(44, 62, 80, 0.3);
 }
