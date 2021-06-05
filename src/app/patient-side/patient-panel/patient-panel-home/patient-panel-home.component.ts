@@ -11,7 +11,7 @@ export class PatientPanelHomeComponent implements OnInit {
       title: 'Register visit',
       src: 'https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?cs=srgb&dl=pexels-ryutaro-tsukata-5473182.jpg&fm=jpg',
       text: 'Register new visit online!',
-      button: { label: 'Go to Visits', icon: 'fas fa-calendar-alt', href: '#' }
+      button: { label: 'Register Visit', icon: 'fas fa-calendar-alt', href: '/patient/visit' }
     }, {
       title: 'Visits history',
       src: 'https://images.pexels.com/photos/4506109/pexels-photo-4506109.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4506109.jpg&fm=jpg',

@@ -1,0 +1,13 @@
+<ng-container>
+  <h2>Choose physiotherapist</h2>
+  <div class="physio-list">
+    <div *ngFor="let physio of physiotherapists" class="btn-wrapper">
+      <button class="btn">
+        {{ physio.name }} {{ physio.surname }} | {{ physio.licenceNo }}
+      </button>
+      <button class="btn physio-action" (click)="choosePhysio(physio)">
+        Show visit dates
+      </button>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="visits-title">
+    <h2>Visits in {{ date }} to {{ physio.name }} {{ physio.surname }}</h2>
+    <button class="btn btn-primary" (click)="backToPhysio()">
+      <i class="fas fa-arrow-left"></i> Back to physio
+    </button>
+    <button class="btn btn-primary" (click)="backToCalendar()">
+      <i class="fas fa-arrow-left"></i> Back to calendar
+    </button>
+  </div>
+
+  <ul class="list-group mb-4" *ngFor="let visit of visits">
+    <li class="list-group-item visit-wrapper" [ngClass]="{'disabled-visit' : !visit.free}">
+      <div class="visit-hours">
+        <span>{{ visit.timeFrom.slice(0, 5) }} - {{ visit.timeTo.slice(0, 5) }}</span>
+        <span *ngIf="visit.patientId === patientId" class="budge">Yours</span>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" *ngIf="visit.free" (click)="register(visit)">Register visit</button>
+        <button class="btn btn-danger" *ngIf="visit.patientId === patientId" (click)="cancel(visit)">Cancel visit</button>
+      </div>
+    </li>
+  </ul>
+</div>

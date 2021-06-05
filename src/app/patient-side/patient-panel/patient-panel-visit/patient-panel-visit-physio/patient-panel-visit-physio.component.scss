@@ -1,0 +1,36 @@
+$primary-color: #2c3e50;
+
+.physio-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: auto;
+  max-height: 500px;
+  overflow-y: scroll;
+
+  .btn-wrapper {
+    margin: 3px;
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      max-width: 50%;
+      text-align: left;
+      margin: 3px;
+    }
+
+    .physio-action {
+      display: none;
+      background-color: $primary-color;
+      color: white;
+    }
+
+    &:hover {
+      outline: 2px solid rgba(44, 62, 80, 0.4);
+      &  > .physio-action {
+        display: flex;
+      }
+    }
+  }
+
+}
