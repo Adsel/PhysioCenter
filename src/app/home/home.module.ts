@@ -6,6 +6,7 @@ import {AuthModule} from '../auth/auth.module';
 import {PatientPanelModule} from '../patient-side/patient-panel/patient-panel.module';
 import {MessengerPanelComponent} from './messenger/messenger-panel/messenger-panel.component';
 import {MessengerModule} from './messenger/messenger.module';
+import {GuestSideModule} from '../guest-side/guest-side.module';
 
 const routes = [
   { path: 'home', component: MainPageComponent },
@@ -16,12 +17,13 @@ const routes = [
   declarations: [
     MainPageComponent,
   ],
-    imports: [
-      CommonModule,
-      RouterModule.forChild(routes),
-      AuthModule,
-      PatientPanelModule,
-      MessengerModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    AuthModule,
+    PatientPanelModule,
+    MessengerModule,
+    GuestSideModule
+  ]
 })
 export class HomeModule { }

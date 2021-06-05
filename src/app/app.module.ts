@@ -14,6 +14,7 @@ import {PagesModule} from './pages/pages.module';
 import {PatientSideModule} from './patient-side/patient-side.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {GuestSideModule} from './guest-side/guest-side.module';
 
 const config: Config = {
   apiUrl: 'http://localhost:8080/api',
@@ -31,6 +32,7 @@ const config: Config = {
     AppRoutingModule,
     PhysioSideModule,
     PatientSideModule,
+    GuestSideModule,
     AuthModule,
     HomeModule,
     PagesModule,

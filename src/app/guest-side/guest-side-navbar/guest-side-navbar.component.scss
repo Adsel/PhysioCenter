@@ -1,0 +1,14 @@
+$navbar-bg-color: #2c3e50;
+$navbar-height: 75px;
+nav {
+  height: $navbar-height;
+  background-color: $navbar-bg-color;
+
+  a {
+    color: white;
+
+    &:hover {
+      color: lighten($navbar-bg-color, 60%);
+    }
+  }
+}
