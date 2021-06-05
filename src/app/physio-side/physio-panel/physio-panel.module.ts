@@ -11,6 +11,7 @@ import { PhysioPanelNavbarComponent } from './physio-panel-navbar/physio-panel-n
 import {RouterModule} from '@angular/router';
 import {PatientPanelModule} from '../../patient-side/patient-panel/patient-panel.module';
 import { PhysioPanelPatientsComponent } from './physio-panel-patients/physio-panel-patients.component';
+import { PhysioPanelVisitsListComponent } from './physio-panel-visits-list/physio-panel-visits-list.component';
 
 const routes = [
   { path: 'physio/visit', component: PhysioPanelVisitsComponent },
@@ -24,6 +25,7 @@ const routes = [
     PhysioPanelCalendarComponent,
     PhysioPanelNavbarComponent,
     PhysioPanelPatientsComponent,
+    PhysioPanelVisitsListComponent,
   ],
   exports: [
     PhysioPanelHomeComponent

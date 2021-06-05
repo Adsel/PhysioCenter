@@ -1,1 +1,11 @@
 <app-physio-panel-navbar></app-physio-panel-navbar>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <app-physio-panel-calendar *ngIf="!selectedDate" (onSelectedEv)="onSelected($event)"></app-physio-panel-calendar>
+      <app-physio-panel-visits-list [date]="selectedDate" [visits]="visits" (cancelVisit)="cancelVisit($event)" (backToCalendarEv)="backToCalendar($event)" *ngIf="!!selectedDate"></app-physio-panel-visits-list>
+    </div>
+  </div>
+</div>

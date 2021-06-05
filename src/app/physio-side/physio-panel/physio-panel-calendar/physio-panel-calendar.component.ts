@@ -6,7 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./physio-panel-calendar.component.scss']
 })
 export class PhysioPanelCalendarComponent implements OnInit {
-
+  @Output() onSelectedEv = new EventEmitter<Date>();
   currentDate: Date;
   minDateValue: Date;
   maxDateValue: Date;
@@ -17,7 +17,7 @@ export class PhysioPanelCalendarComponent implements OnInit {
   }
 
   onSelect($event: Date): void {
-
+    this.onSelectedEv.emit($event);
   }
 
 }
