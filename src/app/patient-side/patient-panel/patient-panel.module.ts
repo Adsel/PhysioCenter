@@ -20,7 +20,8 @@ import {BrowserModule} from '@angular/platform-browser';
     ],
     exports: [
         PatientPanelHomeComponent,
-        PatientPanelNavbarComponent
+        PatientPanelNavbarComponent,
+        PatientPanelHomeCardComponent
     ],
     imports: [
       FormsModule,
