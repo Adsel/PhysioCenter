@@ -10,9 +10,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import { PhysioPanelNavbarComponent } from './physio-panel-navbar/physio-panel-navbar.component';
 import {RouterModule} from '@angular/router';
 import {PatientPanelModule} from '../../patient-side/patient-panel/patient-panel.module';
+import { PhysioPanelPatientsComponent } from './physio-panel-patients/physio-panel-patients.component';
 
 const routes = [
-  { path: 'physio/visit', component: PhysioPanelVisitsComponent }
+  { path: 'physio/visit', component: PhysioPanelVisitsComponent },
+  { path: 'physio/patients', component: PhysioPanelPatientsComponent }
 ];
 
 @NgModule({
@@ -21,6 +23,7 @@ const routes = [
     PhysioPanelVisitsComponent,
     PhysioPanelCalendarComponent,
     PhysioPanelNavbarComponent,
+    PhysioPanelPatientsComponent,
   ],
   exports: [
     PhysioPanelHomeComponent

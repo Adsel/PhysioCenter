@@ -1,0 +1,23 @@
+<app-physio-panel-navbar></app-physio-panel-navbar>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2>Patient list</h2>
+      <div class="list-group">
+        <div *ngFor="let patient of patients" class="list-group-item list-group-item-action patient-details mb-2">
+          <h3>{{ patient.name }} {{ patient.surname }}</h3>
+          <span class="small mb-1">
+            PESEL number: {{ patient.peselNo }}
+          </span>
+          <span class="details-text">E-mail address: {{ patient.email }}</span>
+          <span class="details-text">Phone number: {{ patient.phoneNumber }}</span>
+          <a href="" class="btn btn-primary mx-1 mt-2" >
+            <i class="far fa-address-card"></i> Show patient card
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
