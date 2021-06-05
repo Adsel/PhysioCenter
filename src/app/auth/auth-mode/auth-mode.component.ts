@@ -15,15 +15,16 @@ export class AuthModeComponent implements OnInit {
   ngOnInit(): void {
     this.authModes = [
       {
-        title: 'specialist',
-        header: 'physiotherapist',
-        text: 'lorem ipusm etc.',
-        href: '/physio'
-      }, {
         title: 'user',
         header: 'patient',
-        text: 'lorem ipusm etc.',
+        text: 'Log in as patient to view features',
         href: '/patient'
+      },
+      {
+        title: 'specialist',
+        header: 'physiotherapist',
+        text: 'Manage your visits with patients',
+        href: '/physio'
       }
     ];
   }
