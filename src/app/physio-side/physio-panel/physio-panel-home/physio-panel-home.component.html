@@ -1,1 +1,9 @@
-<p>Witaj, //zawartosc</p>
+<app-physio-panel-navbar></app-physio-panel-navbar>
+<div class="container">
+  <div class="card-group row">
+    <app-patient-panel-home-card *ngFor="let card of cards" class="col-md-4" :buttonLabel="{{ card.button.label }}"
+                                 :title="{{ card.title }}" :src="{{ card.src }}" :text="{{ card.text }}"
+                                 :buttonIcon="{{ card.button.icon }}" :buttonHref="{{ card.button.href }}"
+    ></app-patient-panel-home-card>
+  </div>
+</div>

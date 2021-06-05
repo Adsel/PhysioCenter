@@ -105,5 +105,5 @@ export interface RegisterVisit {
   timeFrom: string;
   timeTo: string;
   date: string;
-  patientId: number;
+  patientId?: number;
 }

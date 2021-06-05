@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Config, CONFIG} from './config';
 import {Observable} from 'rxjs';
-import {Patient, RegisterVisit, VisitPlace} from './model';
+import {RegisterVisit, VisitPlace} from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +27,22 @@ export class VisitService {
       `${this.config.apiUrl}/visit/${physioId}/cancel`,
       registerData,
       {headers: this.config.headersConfig});
+  }
+
+  formatDate(date): string {
+    const d = new Date(date);
+    let month = '' + (d.getMonth() + 1);
+    let day = '' + d.getDate();
+    const year = d.getFullYear();
+
+    if (month.length < 2) {
+      month = '0' + month;
+    }
+
+    if (day.length < 2) {
+      day = '0' + day;
+    }
+
+    return [year, month, day].join('-');
   }
 }
