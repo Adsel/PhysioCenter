@@ -1,1 +1,23 @@
 <app-guest-side-navbar></app-guest-side-navbar>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2>Physiotherapist list</h2>
+      <div class="list-group">
+        <div *ngFor="let physio of physiotherapists" class="list-group-item list-group-item-action physio-details mb-2">
+          <h3>{{ physio.name }} {{ physio.surname }}</h3>
+          <span class="small mb-1">
+            licence number: {{ physio.licenceNo }}
+          </span>
+          <span class="details-text">E-mail address: {{ physio.email }}</span>
+          <span class="details-text">Phone number: {{ physio.phoneNumber }}</span>
+          <a [href]="'mailto:' + physio.email" class="btn btn-primary mx-1 mt-2" >
+            <i class="fas fa-envelope"></i> Send e-mail
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
