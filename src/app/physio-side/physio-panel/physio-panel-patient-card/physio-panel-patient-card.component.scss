@@ -21,3 +21,9 @@ $primary-color: #2c3e50;
     background-color: lighten($primary-color, 20%);
   }
 }
+
+.date {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

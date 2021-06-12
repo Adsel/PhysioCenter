@@ -14,6 +14,7 @@ import { PhysioPanelPatientsComponent } from './physio-panel-patients/physio-pan
 import { PhysioPanelVisitsListComponent } from './physio-panel-visits-list/physio-panel-visits-list.component';
 import { PhysioPanelPatientCardComponent } from './physio-panel-patient-card/physio-panel-patient-card.component';
 import { PhysioPanelPatientCardDiagnosisComponent } from './physio-panel-patient-card-diagnosis/physio-panel-patient-card-diagnosis.component';
+import { PhysioPanelPatientCardExercisesComponent } from './physio-panel-patient-card-exercises/physio-panel-patient-card-exercises.component';
 
 const routes = [
   { path: 'physio/visit', component: PhysioPanelVisitsComponent },
@@ -31,6 +32,7 @@ const routes = [
     PhysioPanelVisitsListComponent,
     PhysioPanelPatientCardComponent,
     PhysioPanelPatientCardDiagnosisComponent,
+    PhysioPanelPatientCardExercisesComponent,
   ],
   exports: [
     PhysioPanelHomeComponent

@@ -111,7 +111,20 @@ export interface RegisterVisit {
 export interface Diagnosis {
   diagnosisId: number;
   diagnosisDate: Date;
+  diagnosisHour: string;
   patientId: number;
   physioId: number;
   diagnosis: string;
+}
+
+export interface AddDiagnosisData {
+  physioId: number;
+  patientId: number;
+  diagnosis: string;
+}
+
+export interface Exercise {
+  exerciseId: number;
+  exerciseName: number;
+  exerciseDescription: number;
 }

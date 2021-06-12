@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {DiagnosisService} from '../../../core/diagnosis.service';
 import {ActivatedRoute} from '@angular/router';
 import {Diagnosis, Patient} from '../../../core/model';
-import {PhysioService} from '../../../core/physio.service';
 import {PatientService} from '../../../core/patient.service';
+import {ToastrService} from 'ngx-toastr';
+import {AuthService} from '../../../core/auth.service';
 
 @Component({
   selector: 'app-physio-panel-patient-card',
@@ -13,11 +14,14 @@ import {PatientService} from '../../../core/patient.service';
 export class PhysioPanelPatientCardComponent implements OnInit {
   diagnosis: Diagnosis[];
   patient: Patient;
+  diagnosisManagment = false;
 
   constructor(
     private diagnosisService: DiagnosisService,
     private activatedRoute: ActivatedRoute,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private toatrService: ToastrService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -32,4 +36,20 @@ export class PhysioPanelPatientCardComponent implements OnInit {
     });
   }
 
+  toggleDiagnosisManagment(): void {
+    this.diagnosisManagment = !this.diagnosisManagment;
+  }
+
+  addDiagnosis(event$): void {
+    const physioId = this.authService.loggedUser.physioId;
+    this.diagnosisService.addDiagnosis({
+      physioId,
+      patientId: this.patient.patientId,
+      diagnosis: event$
+    }).subscribe(() => {
+      this.toatrService.success('Diagnosis has been added');
+    }, () => {
+      this.toatrService.success('Failed to add diagnosis!');
+    });
+  }
 }
