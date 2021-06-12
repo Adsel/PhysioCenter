@@ -1,0 +1,11 @@
+<h4 class="my-3">Exercises:</h4>
+<div class="list-group px-3">
+  <div *ngFor="let exercise of exercises" class="list-group-item list-group-item-action patient-details mb-2">
+    <h5>{{ exercise.exerciseName }}</h5>
+    <span class="text-secondary">{{ exercise.exerciseDescription }}</span>
+    <a href="{{ exercise.videoUrl }}" target="_blank" class="btn btn-primary video-url" role="button">Show video tutorial</a>
+  </div>
+  <div *ngIf="!exercises || exercises.length === 0">
+    Without exercises...
+  </div>
+</div>

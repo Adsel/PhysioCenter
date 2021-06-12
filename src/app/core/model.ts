@@ -127,6 +127,7 @@ export interface Exercise {
   exerciseId: number;
   exerciseName: number;
   exerciseDescription: number;
+  videoUrl: string;
 }
 
 export interface AddExerciseData {

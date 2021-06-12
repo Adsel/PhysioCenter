@@ -1,0 +1,10 @@
+$primary-color: #2c3e50;
+
+.video-url {
+  display: block;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: lighten($primary-color, 20%);
+  }
+}
