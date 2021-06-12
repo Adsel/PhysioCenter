@@ -15,6 +15,7 @@ export class PhysioPanelPatientCardComponent implements OnInit {
   diagnosis: Diagnosis[];
   patient: Patient;
   diagnosisManagment = false;
+  patientId: number;
 
   constructor(
     private diagnosisService: DiagnosisService,
@@ -29,10 +30,15 @@ export class PhysioPanelPatientCardComponent implements OnInit {
       // tslint:disable-next-line:radix
       const patientId = parseInt(params.id);
       this.patientService.getPatientData(patientId).subscribe((patient) => { this.patient = patient; });
+      this.patientId = patientId;
 
-      this.diagnosisService.getAllPatientDiagnosis(patientId).subscribe((diagnosis) => {
-        this.diagnosis = diagnosis;
-      });
+      this.loadExercises();
+    });
+  }
+
+  loadExercises(): void {
+    this.diagnosisService.getAllPatientDiagnosis(this.patientId).subscribe((diagnosis) => {
+      this.diagnosis = diagnosis;
     });
   }
 
@@ -47,6 +53,8 @@ export class PhysioPanelPatientCardComponent implements OnInit {
       patientId: this.patient.patientId,
       diagnosis: event$
     }).subscribe(() => {
+      this.diagnosisManagment = false;
+      this.loadExercises();
       this.toatrService.success('Diagnosis has been added');
     }, () => {
       this.toatrService.success('Failed to add diagnosis!');

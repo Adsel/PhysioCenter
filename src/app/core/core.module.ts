@@ -3,13 +3,19 @@ import { CommonModule } from '@angular/common';
 import {AuthPhysioGuard} from './auth-physio-guard.service';
 import {AuthService} from './auth.service';
 import {HttpClientModule} from '@angular/common/http';
+import { TimeCutterPipe } from './pipes/time-cutter.pipe';
 
 @NgModule({
   providers: [
     AuthPhysioGuard,
     AuthService
   ],
-  declarations: [],
+  declarations: [
+    TimeCutterPipe
+  ],
+  exports: [
+    TimeCutterPipe
+  ],
   imports: [
     CommonModule,
     HttpClientModule

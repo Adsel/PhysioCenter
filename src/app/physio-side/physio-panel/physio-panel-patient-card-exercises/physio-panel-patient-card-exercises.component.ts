@@ -10,6 +10,7 @@ import {DiagnosisService} from '../../../core/diagnosis.service';
 export class PhysioPanelPatientCardExercisesComponent implements OnInit {
   exercises: Exercise[];
   @Input() diagnosisId: number;
+  isDialogOpen = false;
 
   constructor(
     private diagnosisService: DiagnosisService
@@ -18,5 +19,9 @@ export class PhysioPanelPatientCardExercisesComponent implements OnInit {
   ngOnInit(): void {
     this.exercises = [];
     this.diagnosisService.getDiagnosisExercises(this.diagnosisId).subscribe((exercises) => { this.exercises = exercises; });
+  }
+
+  openDialog(): void {
+    this.isDialogOpen = true;
   }
 }

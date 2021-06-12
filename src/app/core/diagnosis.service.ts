@@ -23,6 +23,6 @@ export class DiagnosisService {
   }
 
   addDiagnosis(param: AddDiagnosisData): Observable<any> {
-    return this.httpClient.post<Diagnosis[]>(`${this.config.apiUrl}/diagnosis`, param, { headers: this.config.headersConfig });
+    return this.httpClient.post<Diagnosis[]>(`${this.config.apiUrl}/diagnosis/add`, param, { headers: this.config.headersConfig });
   }
 }
