@@ -12,10 +12,12 @@ import {RouterModule} from '@angular/router';
 import {PatientPanelModule} from '../../patient-side/patient-panel/patient-panel.module';
 import { PhysioPanelPatientsComponent } from './physio-panel-patients/physio-panel-patients.component';
 import { PhysioPanelVisitsListComponent } from './physio-panel-visits-list/physio-panel-visits-list.component';
+import { PhysioPanelPatientCardComponent } from './physio-panel-patient-card/physio-panel-patient-card.component';
 
 const routes = [
   { path: 'physio/visit', component: PhysioPanelVisitsComponent },
-  { path: 'physio/patients', component: PhysioPanelPatientsComponent }
+  { path: 'physio/patients', component: PhysioPanelPatientsComponent },
+  { path: 'physio/patient/:id', component: PhysioPanelPatientCardComponent }
 ];
 
 @NgModule({
@@ -26,6 +28,7 @@ const routes = [
     PhysioPanelNavbarComponent,
     PhysioPanelPatientsComponent,
     PhysioPanelVisitsListComponent,
+    PhysioPanelPatientCardComponent,
   ],
   exports: [
     PhysioPanelHomeComponent
