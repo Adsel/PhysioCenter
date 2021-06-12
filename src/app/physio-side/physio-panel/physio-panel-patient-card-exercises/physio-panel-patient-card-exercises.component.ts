@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
 import {Exercise} from '../../../core/model';
 import {DiagnosisService} from '../../../core/diagnosis.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-physio-panel-patient-card-exercises',
@@ -10,10 +11,12 @@ import {DiagnosisService} from '../../../core/diagnosis.service';
 export class PhysioPanelPatientCardExercisesComponent implements OnInit {
   exercises: Exercise[];
   @Input() diagnosisId: number;
-  isDialogOpen = false;
+  @Input() availableExercises: Exercise[];
+  @Output() addedExercise = new EventEmitter<void>();
 
   constructor(
-    private diagnosisService: DiagnosisService
+    private diagnosisService: DiagnosisService,
+    private toatrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -21,7 +24,15 @@ export class PhysioPanelPatientCardExercisesComponent implements OnInit {
     this.diagnosisService.getDiagnosisExercises(this.diagnosisId).subscribe((exercises) => { this.exercises = exercises; });
   }
 
-  openDialog(): void {
-    this.isDialogOpen = true;
+  addExercise($event: number): void {
+    this.diagnosisService.addExercise({
+      exerciseId: $event,
+      diagnosisId: this.diagnosisId
+    }).subscribe(() => {
+      this.toatrService.success('Exercise has been added');
+      this.addedExercise.emit();
+    }, () => {
+      this.toatrService.error('Failed to add exercise!');
+    });
   }
 }

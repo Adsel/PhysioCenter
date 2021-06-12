@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Exercise} from '../../../core/model';
 
 @Component({
   selector: 'app-physio-panel-patient-card-exercises-add',
@@ -6,7 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./physio-panel-patient-card-exercises-add.component.scss']
 })
 export class PhysioPanelPatientCardExercisesAddComponent implements OnInit {
-  @Input() isDialogOpen: boolean;
+  isDialogOpen = false;
+  @Input() availableExercises: Exercise[];
+  @Output() choosedExerciseId = new EventEmitter<number>();
 
   constructor() { }
 
@@ -15,5 +18,14 @@ export class PhysioPanelPatientCardExercisesAddComponent implements OnInit {
 
   closeDialog(): void {
     this.isDialogOpen = false;
+  }
+
+  openDialog(): void {
+    this.isDialogOpen = true;
+  }
+
+  chooseExercise(exerciseId: number): void {
+    this.isDialogOpen = false;
+    this.choosedExerciseId.emit(exerciseId);
   }
 }

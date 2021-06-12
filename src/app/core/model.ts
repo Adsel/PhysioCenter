@@ -128,3 +128,8 @@ export interface Exercise {
   exerciseName: number;
   exerciseDescription: number;
 }
+
+export interface AddExerciseData {
+  exerciseId: number;
+  diagnosisId: number;
+}

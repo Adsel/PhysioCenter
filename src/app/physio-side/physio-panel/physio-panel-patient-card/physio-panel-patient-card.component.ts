@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DiagnosisService} from '../../../core/diagnosis.service';
 import {ActivatedRoute} from '@angular/router';
-import {Diagnosis, Patient} from '../../../core/model';
+import {Diagnosis, Exercise, Patient} from '../../../core/model';
 import {PatientService} from '../../../core/patient.service';
 import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../../../core/auth.service';
@@ -16,6 +16,7 @@ export class PhysioPanelPatientCardComponent implements OnInit {
   patient: Patient;
   diagnosisManagment = false;
   patientId: number;
+  availableExercises: Exercise[];
 
   constructor(
     private diagnosisService: DiagnosisService,
@@ -34,6 +35,7 @@ export class PhysioPanelPatientCardComponent implements OnInit {
 
       this.loadExercises();
     });
+    this.diagnosisService.getAllExercises().subscribe((exercises) => { this.availableExercises = exercises; });
   }
 
   loadExercises(): void {
@@ -57,7 +59,11 @@ export class PhysioPanelPatientCardComponent implements OnInit {
       this.loadExercises();
       this.toatrService.success('Diagnosis has been added');
     }, () => {
-      this.toatrService.success('Failed to add diagnosis!');
+      this.toatrService.error('Failed to add diagnosis!');
     });
+  }
+
+  addedExercise(): void {
+    this.loadExercises();
   }
 }

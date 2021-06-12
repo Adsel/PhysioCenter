@@ -23,7 +23,8 @@
           <h4 class="mb-0">Diagnosis:</h4>
           <span class="details-text p-3">{{ diagno.diagnosis }}</span>
 
-          <app-physio-panel-patient-card-exercises [diagnosisId]="diagno.diagnosisId"></app-physio-panel-patient-card-exercises>
+          <app-physio-panel-patient-card-exercises [availableExercises]="availableExercises"
+            [diagnosisId]="diagno.diagnosisId" (addedExercise)="addedExercise()"></app-physio-panel-patient-card-exercises>
         </div>
       </div>
     </div>
