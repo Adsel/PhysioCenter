@@ -1,0 +1,28 @@
+$primary-color: #2c3e50;
+img.card-img-top {
+  max-height: 232px;
+}
+
+div.card {
+  border: 2px solid rgba(44, 62, 80, 0.4);
+}
+
+div.card-body > a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.125rem;
+  width: 100%;
+  text-align: center;
+  display: block;
+  background-color: $primary-color;
+  color: white;
+  padding: 15px 0;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+
+  & > i {
+    margin-right: 5px;
+  }
+}

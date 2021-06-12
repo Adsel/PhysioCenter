@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="visits-title">
+    <h2>Visits in {{ currentDate }}</h2>
+    <button class="btn btn-primary" (click)="backToCalendar()">
+      <i class="fas fa-arrow-left"></i> Back to calendar
+    </button>
+  </div>
+
+  <ul class="list-group mb-4" *ngFor="let visit of visits">
+    <li class="list-group-item visit-wrapper" [ngClass]="{'disabled-visit' : !visit.free}">
+      <div class="visit-hours">
+        <span>{{ visit.timeFrom.slice(0, 5) }} - {{ visit.timeTo.slice(0, 5) }}</span>
+      </div>
+
+      <div>
+        <button class="btn btn-danger" *ngIf="!visit.free" (click)="cancel(visit)">Cancel visit</button>
+      </div>
+    </li>
+  </ul>
+</div>

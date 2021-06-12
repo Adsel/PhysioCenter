@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Active conversation</h4>
+    <h6 *ngIf="!activeMessageObject" class="card-subtitle mb-2 text-muted">Now not selected</h6>
+    <ng-container *ngIf="!!activeMessageObject">
+      <ng-container *ngIf="isPhysio">
+        <h5 class="card-title mb-2">{{ activeMessageObject.patient.name }} {{ activeMessageObject.patient.surname }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ activeMessageObject.patient.email }}</h6>
+        <p class="card-text"></p>
+      </ng-container>
+      <ng-container *ngIf="!isPhysio">
+        <h5 class="card-title mb-2">{{ activeMessageObject.physio.name }} {{ activeMessageObject.physio.surname }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ activeMessageObject.physio.email }}</h6>
+        <p class="card-text"></p>
+      </ng-container>
+      <div *ngIf="!!messages && messages.length > 0" class="message-wrapper">
+        <div class="message" *ngFor="let message of messages" [title]="'Sent: ' + message.createdAt"
+             [ngClass]="{'message-from': (message.directionToPhysio && isPhysio) || (!message.directionToPhysio && !isPhysio)}">
+          {{ message.message }}
+        </div>
+      </div>
+      <div *ngIf="!messages || messages.length === 0">
+        Start conversation by sending first message ;)
+      </div>
+      <app-messenger-add (sentMessage)="onSentMessage($event)" [isPhysio]="isPhysio" [activeMessageObject]="activeMessageObject"></app-messenger-add>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<app-patient-panel-navbar></app-patient-panel-navbar>
+<div class="container mt-5">
+  <div class="row" *ngIf="!selectedPhysio">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <app-patient-panel-visit-physio (onChoosePhysio)="onChoosePhysio($event)"></app-patient-panel-visit-physio>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngIf="!!selectedPhysio && !visits">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <app-patient-panel-visit-calendar (backToPhysioEv)="backToPhysio()"
+                                          (onSelectDateEv)="onSelect($event)"></app-patient-panel-visit-calendar>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!!selectedDate && !!visits">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <app-patient-panel-visit-list [physio]="selectedPhysio" [date]="selectedDate"
+                                      [visits]="visits" (backToPhysioEv)="backToPhysio()"
+                                      (cancelVisit)="onCancelVisit($event)"
+                                      (backToCalendarEv)="backToCalendar()" (registerVisit)="onRegisterVisit($event)">
+        </app-patient-panel-visit-list>
+      </div>
+    </ng-container>
+  </div>
+</div>

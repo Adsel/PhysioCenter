@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <h2 class="text-center">Choose mode</h2>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="card-group col-md-8">
+      <ng-container *ngFor="let mode of this.authModes">
+        <app-auth-mode-card class="col-md-6" [href]="mode.href" [header]="mode.header" [title]="mode.title"
+                            [text]="mode.text">
+        </app-auth-mode-card>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h3 class="text-center col-md-12">You can go on as a Guest also</h3>
+    <div class="col-md-4"></div>
+    <div class="card guest-mode-card text-center text-white bg-primary mb-3 col-md-4">
+      <a class="text-white" href="/guest">
+        <div class="card-header">Guest</div>
+        <div class="card-body">
+          <h3 class="card-title">Physio list</h3>
+          <p class="card-text">Check available physiotherapist in our Physio Center</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

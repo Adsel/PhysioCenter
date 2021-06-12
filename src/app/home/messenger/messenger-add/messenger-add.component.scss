@@ -1,0 +1,31 @@
+$primary-color: #2c3e50;
+
+.message-form {
+  margin-top: 15px;
+  width: 100%;
+
+  & > form {
+    width: 100%;
+    display: flex;
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    flex-direction: row;
+
+    $btn-width: 10rem;
+    & > button {
+      background-color: $primary-color;
+      color: white;
+      width: $btn-width;
+      margin-left: 15px;
+
+      &:hover {
+        background-color: lighten($primary-color, 20%);
+      }
+    }
+
+    input {
+      padding: 5px 15px;
+      width: calc(100% - #{$btn-width} - 15px);
+    }
+  }
+}

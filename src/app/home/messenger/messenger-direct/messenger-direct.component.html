@@ -1,0 +1,10 @@
+<div class="new-conversation-wrapper mb-2">
+  <button class="btn" (click)="toggleModal($event)">
+    <i class="fas fa-plus"></i> New conversation
+  </button>
+
+  <app-messenger-choose-contact [isPhysio]="isPhysio" [isDialogOpen]="isModalOpen"
+                                (closeDialogEvent)="toggleModal($event)"
+                                (chooseContactEvent)="createMessageObj($event)">
+  </app-messenger-choose-contact>
+</div>

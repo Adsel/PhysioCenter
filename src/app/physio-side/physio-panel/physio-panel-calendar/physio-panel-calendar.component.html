@@ -1,0 +1,7 @@
+<h2>
+  Choose specific date
+</h2>
+<p-calendar [(ngModel)]="currentDate" (onSelect)="onSelect($event)" [minDate]="minDateValue"
+            [maxDate]="maxDateValue"
+            [inline]="true" dateFormat="yy.dd.mm" [showWeek]="false" [firstDayOfWeek]="1">
+</p-calendar>

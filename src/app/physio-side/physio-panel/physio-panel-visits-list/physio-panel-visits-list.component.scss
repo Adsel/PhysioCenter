@@ -1,0 +1,38 @@
+$primary-color: #2c3e50;
+
+.btn-primary {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+}
+
+.visits-title {
+  margin-bottom: 0.5rem;
+
+  & > button {
+    margin-right: 0.5rem;
+  }
+}
+
+.visit-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  & > .visit-hours {
+    display: flex;
+    align-items: center;
+  }
+
+  & > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.disabled-visit {
+  background-color: rgba(44, 62, 80, 0.3);
+}

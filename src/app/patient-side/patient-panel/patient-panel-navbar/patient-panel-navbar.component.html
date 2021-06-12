@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="#">PhysioCenter App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/patient">
+          Home <i class="fas fa-home"></i>
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patient/settings">
+          Account <i class="fas fa-user"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patient/visit">
+          Visit registration <i class="fas fa-calendar-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patient/card">
+          Patient card <i class="fas fa-id-card-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patient/physio">
+          Physiotherapists <i class="fas fa-glasses"></i>
+        </a>
+      </li>
+
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-light my-2 my-sm-0" (click)="logoutPatient()">Logout</button>
+    </form>
+  </div>
+</nav>
