@@ -30,7 +30,7 @@ export class PatientPanelVisitListComponent implements OnInit {
   }
 
   backToPhysio(): void {
-    this.backToCalendarEv.emit();
+    this.backToPhysioEv.emit();
   }
 
   register(event: VisitPlace): void {
