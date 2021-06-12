@@ -13,7 +13,7 @@
           </span>
           <span class="details-text">E-mail address: {{ patient.email }}</span>
           <span class="details-text">Phone number: {{ patient.phoneNumber }}</span>
-          <a href="" class="btn btn-primary mx-1 mt-2" >
+          <a routerLink="/physio/patient/{{patient.patientId}}" class="btn btn-primary mx-1 mt-2" >
             <i class="far fa-address-card"></i> Show patient card
           </a>
         </div>

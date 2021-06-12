@@ -7,6 +7,9 @@ import { PatientPanelPhysioComponent } from './patient-panel-physio/patient-pane
 import { PatientPanelUserComponent } from './patient-panel-user/patient-panel-user.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
+import { PatientPanelVisitsComponent } from './patient-panel-visits/patient-panel-visits.component';
+import {CoreModule} from '../../core/core.module';
+import { PatientPanelDiagnosisExercisesComponent } from './patient-panel-diagnosis-exercises/patient-panel-diagnosis-exercises.component';
 
 
 
@@ -16,17 +19,20 @@ import {BrowserModule} from '@angular/platform-browser';
         PatientPanelNavbarComponent,
         PatientPanelHomeCardComponent,
         PatientPanelPhysioComponent,
-        PatientPanelUserComponent
+        PatientPanelUserComponent,
+        PatientPanelVisitsComponent,
+        PatientPanelDiagnosisExercisesComponent
     ],
     exports: [
         PatientPanelHomeComponent,
         PatientPanelNavbarComponent,
         PatientPanelHomeCardComponent
     ],
-    imports: [
-      FormsModule,
-      CommonModule,
-      BrowserModule
-    ]
+  imports: [
+    FormsModule,
+    CommonModule,
+    BrowserModule,
+    CoreModule
+  ]
 })
 export class PatientPanelModule { }

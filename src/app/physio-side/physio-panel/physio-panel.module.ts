@@ -12,10 +12,16 @@ import {RouterModule} from '@angular/router';
 import {PatientPanelModule} from '../../patient-side/patient-panel/patient-panel.module';
 import { PhysioPanelPatientsComponent } from './physio-panel-patients/physio-panel-patients.component';
 import { PhysioPanelVisitsListComponent } from './physio-panel-visits-list/physio-panel-visits-list.component';
+import { PhysioPanelPatientCardComponent } from './physio-panel-patient-card/physio-panel-patient-card.component';
+import { PhysioPanelPatientCardDiagnosisComponent } from './physio-panel-patient-card-diagnosis/physio-panel-patient-card-diagnosis.component';
+import { PhysioPanelPatientCardExercisesComponent } from './physio-panel-patient-card-exercises/physio-panel-patient-card-exercises.component';
+import {CoreModule} from '../../core/core.module';
+import { PhysioPanelPatientCardExercisesAddComponent } from './physio-panel-patient-card-exercises-add/physio-panel-patient-card-exercises-add.component';
 
 const routes = [
   { path: 'physio/visit', component: PhysioPanelVisitsComponent },
-  { path: 'physio/patients', component: PhysioPanelPatientsComponent }
+  { path: 'physio/patients', component: PhysioPanelPatientsComponent },
+  { path: 'physio/patient/:id', component: PhysioPanelPatientCardComponent }
 ];
 
 @NgModule({
@@ -26,6 +32,10 @@ const routes = [
     PhysioPanelNavbarComponent,
     PhysioPanelPatientsComponent,
     PhysioPanelVisitsListComponent,
+    PhysioPanelPatientCardComponent,
+    PhysioPanelPatientCardDiagnosisComponent,
+    PhysioPanelPatientCardExercisesComponent,
+    PhysioPanelPatientCardExercisesAddComponent,
   ],
   exports: [
     PhysioPanelHomeComponent
@@ -37,7 +47,8 @@ const routes = [
     BrowserModule,
     CalendarModule,
     RouterModule.forChild(routes),
-    PatientPanelModule
+    PatientPanelModule,
+    CoreModule
   ]
 })
 export class PhysioPanelModule { }

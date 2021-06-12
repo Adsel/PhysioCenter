@@ -36,6 +36,8 @@ export class PatientPanelVisitRegistrationComponent implements OnInit {
 
   backToPhysio(): void {
     this.selectedPhysio = null;
+    this.visits = null;
+    this.selectedDate = null;
   }
 
   onChoosePhysio(physio): void {

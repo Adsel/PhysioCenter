@@ -10,13 +10,15 @@ import {PatientPanelPhysioComponent} from './patient-panel/patient-panel-physio/
 import {PatientPanelUserComponent} from './patient-panel/patient-panel-user/patient-panel-user.component';
 import {PatientPanelVisitRegistrationComponent} from './patient-panel/patient-panel-visit/patient-panel-visit-registration/patient-panel-visit-registration.component';
 import {PatientPanelVisitModule} from './patient-panel/patient-panel-visit/patient-panel-visit.module';
+import {PatientPanelVisitsComponent} from './patient-panel/patient-panel-visits/patient-panel-visits.component';
 
 const routes = [
   { path: 'patient', component: PatientAuthComponent },
   { path: 'patient/registration', component: PatientRegistrationComponent },
   { path: 'patient/physio', component: PatientPanelPhysioComponent },
   { path: 'patient/settings', component: PatientPanelUserComponent },
-  { path: 'patient/visit', component: PatientPanelVisitRegistrationComponent }
+  { path: 'patient/visit', component: PatientPanelVisitRegistrationComponent },
+  { path: 'patient/card', component: PatientPanelVisitsComponent },
   // { path: 'patient/example', component: PhysioAuthComponent, canActivate: [AuthPhysioGuard },
 ];
 
