@@ -18,7 +18,7 @@ const routes = [
   { path: 'patient/physio', component: PatientPanelPhysioComponent },
   { path: 'patient/settings', component: PatientPanelUserComponent },
   { path: 'patient/visit', component: PatientPanelVisitRegistrationComponent },
-  { path: 'patient/visits', component: PatientPanelVisitsComponent },
+  { path: 'patient/card', component: PatientPanelVisitsComponent },
   // { path: 'patient/example', component: PhysioAuthComponent, canActivate: [AuthPhysioGuard },
 ];
 
