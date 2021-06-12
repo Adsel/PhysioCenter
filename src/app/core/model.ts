@@ -107,3 +107,11 @@ export interface RegisterVisit {
   date: string;
   patientId?: number;
 }
+
+export interface Diagnosis {
+  diagnosisId: number;
+  diagnosisDate: Date;
+  patientId: number;
+  physioId: number;
+  diagnosis: string;
+}

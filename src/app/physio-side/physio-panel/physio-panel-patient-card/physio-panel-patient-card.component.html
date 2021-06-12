@@ -5,19 +5,18 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
       <h2>Patient card</h2>
-      <h3 class="text-secondary">imie nazwisko</h3>
+      <h3 class="text-secondary" *ngIf="!!patient">{{ patient.name }} {{ patient.surname }}</h3>
+      <button class="btn btn-primary mb-3">Add Diagnosis</button>
+
       <div class="list-group">
-<!--        <div *ngFor="let patient of patients" class="list-group-item list-group-item-action patient-details mb-2">-->
-<!--          <h3>{{ patient.name }} {{ patient.surname }}</h3>-->
-<!--          <span class="small mb-1">-->
-<!--            PESEL number: {{ patient.peselNo }}-->
-<!--          </span>-->
-<!--          <span class="details-text">E-mail address: {{ patient.email }}</span>-->
-<!--          <span class="details-text">Phone number: {{ patient.phoneNumber }}</span>-->
-<!--          <a href="" class="btn btn-primary mx-1 mt-2" >-->
-<!--            <i class="far fa-address-card"></i> Show patient card-->
-<!--          </a>-->
-<!--        </div>-->
+        <div *ngFor="let diagno of diagnosis" class="list-group-item list-group-item-action patient-details mb-2">
+          <h3>Diagnosis date: {{ diagno.diagnosisDate }}</h3>
+          <span class="small mb-1">
+            Physio id: {{ diagno.physioId }}
+          </span>
+          <h4>Diagnosis:</h4>
+          <span class="details-text">{{ diagno.diagnosis }}</span>
+        </div>
       </div>
     </div>
   </div>
